@@ -23,6 +23,8 @@ const { title, description = "AI Cookbook - Jupyter notebook examples" } = Astro
       title="Forgebook RSS Feed"
       href={new URL("rss.xml", Astro.site)}
     />
+    <!-- KaTeX CSS for math rendering -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" integrity="sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI+WdtXRGWt2kTvGFasHpSy3SV" crossorigin="anonymous">
     <title>{title} | Forgebook</title>
   </head>
   <body class="min-h-screen bg-white dark:bg-slate-900 text-slate-900 dark:text-slate-100">
@@ -86,6 +88,21 @@ const { title, description = "AI Cookbook - Jupyter notebook examples" } = Astro
           setTimeout(() => btn.textContent = 'Copy', 2000);
         });
         wrapper.appendChild(btn);
+      });
+    </script>
+
+    <!-- Twemoji for consistent emoji rendering across platforms -->
+    <script is:inline src="https://cdn.jsdelivr.net/npm/@twemoji/api@latest/dist/twemoji.min.js" crossorigin="anonymous"></script>
+    <script is:inline>
+      // Parse emojis after page load
+      document.addEventListener('DOMContentLoaded', function() {
+        if (typeof twemoji !== 'undefined') {
+          twemoji.parse(document.body, {
+            folder: 'svg',
+            ext: '.svg',
+            base: 'https://cdn.jsdelivr.net/gh/twitter/twemoji@latest/assets/'
+          });
+        }
       });
     </script>
   </body>
