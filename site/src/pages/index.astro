@@ -2,6 +2,7 @@
 import BaseLayout from "@/layouts/BaseLayout.astro";
 import NotebookCard from "@/components/NotebookCard.astro";
 import { getCollection } from "astro:content";
+import { REPO_URL } from "@/config";
 
 const notebooksCollection = await getCollection("notebooks");
 
@@ -65,10 +66,10 @@ const notebooks = notebooksCollection.map((entry) => ({
             Clone and run locally:
           </h3>
           <pre
-            class="bg-slate-900 text-slate-100 p-4 rounded-lg overflow-x-auto text-sm"><code>git clone https://github.com/your-org/forgebook.git
+            class="bg-slate-900 text-slate-100 p-4 rounded-lg overflow-x-auto text-sm"><code>{`git clone ${REPO_URL}.git
 cd forgebook
 pip install -r requirements.txt
-jupyter notebook</code></pre>
+jupyter notebook`}</code></pre>
         </div>
       </div>
     </section>

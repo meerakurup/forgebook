@@ -1,4 +1,6 @@
 ---
+import { withBase } from "@/config";
+
 interface Author {
   github: string;
 }
@@ -21,7 +23,7 @@ const { notebook } = Astro.props;
 ---
 
 <a
-  href={`/notebook/${notebook.slug}`}
+  href={withBase(`/notebook/${notebook.slug}`)}
   class="block p-6 bg-white dark:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-700 hover:border-blue-400 dark:hover:border-blue-500 hover:shadow-lg transition-all"
 >
   <h3 class="text-lg font-semibold text-slate-900 dark:text-slate-100 mb-2">
