@@ -1,17 +1,19 @@
 import rss from "@astrojs/rss";
 import { getCollection } from "astro:content";
 import type { APIContext } from "astro";
-import { REPO_URL, withBase } from "@/config";
+import { REPO_URL, withBase, BASE_URL } from "@/config";
 
 export async function GET(context: APIContext) {
   const notebooks = await getCollection("notebooks");
   const siteUrl = context.site!;
+  // Include base path in site URL for correct channel link
+  const siteWithBase = new URL(BASE_URL, siteUrl).href;
 
   return rss({
     title: "Forgebook",
     description:
       "A notebook-first AI cookbook. Jupyter notebook examples and tutorials.",
-    site: siteUrl,
+    site: siteWithBase,
     items: notebooks.map((notebook) => ({
       title: notebook.data.title,
       pubDate: notebook.data.date

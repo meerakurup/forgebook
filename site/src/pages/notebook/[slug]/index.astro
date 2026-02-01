@@ -34,13 +34,13 @@ const authors = await resolveAuthors(notebook.data.authors);
         )
       }
 
-      <NotebookActions notebookPath={notebook.data.path} slug={notebook.data.slug} />
+      <NotebookActions notebookPath={notebook.data.path} slug={notebook.data.slug} title={notebook.data.title} />
     </header>
 
     <!-- Authors -->
     <section class="mb-8">
       <h2 class="text-sm font-medium text-slate-500 uppercase tracking-wide mb-3">
-        Authors
+        {authors.length === 1 ? "Author" : "Authors"}
       </h2>
       <div class="flex flex-wrap gap-2">
         {authors.map((author) => <AuthorCard {...author} />)}
