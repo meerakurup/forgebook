@@ -17,7 +17,7 @@
 - slug: migrate-gpt-4o-mini-to-gpt-5-1
   path: notebooks/migrate-gpt-4o-mini-to-gpt-5-1.ipynb
   title: "Migrate gpt-4o-mini to gpt-5.1"
-  description: "Port a Chat Completions app from gpt-4o-mini to gpt-5.1 with the minimal code diff: rename max_completion_tokens, drop unsupported sampling params, and add reasoning_effort and verbosity."
+  description: "Port a Chat Completions app from gpt-4o-mini to gpt-5.1: rename max_tokens to max_completion_tokens, remove unsupported sampling, and use reasoning_effort and verbosity."
   date: "2026-07-07"
   authors:
     - github: meerakurup
